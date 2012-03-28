@@ -40,6 +40,12 @@
       <HintPath>..\packages\Nancy.Testing.0.10.0\lib\net40\HtmlAgilityPlus.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MongoDB.Bson">
+      <HintPath>..\packages\mongocsharpdriver.1.4\lib\net35\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver">
+      <HintPath>..\packages\mongocsharpdriver.1.4\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.10.0\lib\net40\Nancy.dll</HintPath>
     </Reference>
@@ -85,6 +91,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\ResponseExtensions.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\HelloModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

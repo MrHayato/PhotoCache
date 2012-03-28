@@ -1,0 +1,8 @@
+port
+help
+show dbs
+use photoCache
+show dbs
+show collections
+db.help()
+3+3
