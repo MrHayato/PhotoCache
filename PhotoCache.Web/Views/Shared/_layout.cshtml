@@ -1,15 +1,20 @@
-﻿<!DOCTYPE html>
-
+﻿@using Cassette.Nancy
+@{
+    Bundles.Reference("Content/scripts/libs/jquery-1.7.2.js");
+    Bundles.Reference("Content/scripts/libs/");
+    Bundles.Reference("Content/scripts/views/testview.js", "body");
+}
+<!DOCTYPE html>
 <html>
-    <head>
-        <title>PhotoCache</title>
-        <link href="/Content/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" />
-        <link href="/Content/css/print.css" media="print" rel="stylesheet" type="text/css" />
-        <!--[if lt IE 8]>
-            <link href="/Content/css/ie.css" media="screen, projection" rel="stylesheet" type="text/css" />
-        <![endif]-->
-    </head>
-    <body>
-        @RenderBody()
-    </body>
+<head>
+    <meta charset="utf-8" />
+    <title>App</title>
+    @Bundles.RenderScripts()
+</head>
+
+<body>
+    @RenderBody()
+    
+    @Bundles.RenderScripts("body")
+</body>
 </html>

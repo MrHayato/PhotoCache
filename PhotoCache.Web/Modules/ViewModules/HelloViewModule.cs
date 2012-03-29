@@ -10,8 +10,8 @@ namespace PhotoCache.Web.Modules.ViewModules
         public HelloViewModule()
         {
             _collection = Database.GetCollection<TestModel>("TestModel");
-            Get["/"] = x => View["index"];
-            Get["/test"] = x => View["test/index", _collection.FindAll()];
+            Get["/"] = x => View["Index.cshtml"];
+            Get["/test"] = x => View["Test/Index.cshtml", _collection.FindAll()];
         }
     }
 }

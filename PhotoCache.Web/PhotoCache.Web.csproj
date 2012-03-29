@@ -6,13 +6,14 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{3EA0FB4A-1D91-4027-9748-7C82E00ADA55}</ProjectGuid>
-    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectGuid>{C1F693B9-4B32-474D-819A-223DA9A424BE}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PhotoCache.Web</RootNamespace>
     <AssemblyName>PhotoCache.Web</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -33,13 +34,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="HtmlAgilityPack">
-      <HintPath>..\packages\Nancy.Testing.0.10.0\lib\net40\HtmlAgilityPack.dll</HintPath>
+    <Reference Include="AjaxMin">
+      <HintPath>..\packages\AjaxMin.4.46.4422.26284\lib\net20\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="HtmlAgilityPlus">
-      <HintPath>..\packages\Nancy.Testing.0.10.0\lib\net40\HtmlAgilityPlus.dll</HintPath>
+    <Reference Include="Cassette">
+      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Cassette.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Cassette.dotless.Core">
+      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Cassette.dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Nancy">
+      <HintPath>..\packages\Cassette.Nancy.1.1.1.0\lib\net40\Cassette.Nancy.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Jurassic">
+      <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\mongocsharpdriver.1.4\lib\net35\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -52,79 +67,103 @@
     <Reference Include="Nancy.Hosting.Aspnet">
       <HintPath>..\packages\Nancy.Hosting.Aspnet.0.10.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Testing">
-      <HintPath>..\packages\Nancy.Testing.0.10.0\lib\net40\Nancy.Testing.dll</HintPath>
-    </Reference>
     <Reference Include="Nancy.ViewEngines.Razor">
       <HintPath>..\packages\Nancy.Viewengines.Razor.0.10.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
-    <Reference Include="System.Web.ApplicationServices" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Web.Extensions" />
+    <Reference Include="Nancy.ViewEngines.Razor.BuildProviders, Version=0.10.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Nancy.ViewEngines.Razor.BuildProviders.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pandora">
+      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Pandora.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Nancy.Viewengines.Razor.0.10.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.7.0.1540\lib\xunit.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="CassetteConfiguration.cs" />
+    <Content Include="Content\scripts\libs\backbone-0.9.2.js" />
+    <Content Include="Content\scripts\libs\underscore-1.3.1.js" />
+    <Content Include="Content\scripts\models\testmodel.js" />
+    <Compile Include="Helpers\ResponseExtensions.cs" />
+    <Compile Include="Modules\APIModules\BaseAPIModule.cs" />
+    <Compile Include="Modules\APIModules\SessionAPIModule.cs" />
+    <Compile Include="Modules\BaseModule.cs" />
+    <Compile Include="Modules\ViewModules\HelloViewModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\ie.css" />
+    <Content Include="Content\css\print.css" />
+    <Content Include="Content\css\screen.css" />
     <Content Include="Content\images\grid.png" />
-    <Content Include="Content\sass\ie.css">
+    <Content Include="Content\sass\ie.scss">
+      <Generator>ScssGenerator</Generator>
+      <LastGenOutput>ie1.css</LastGenOutput>
+    </Content>
+    <Content Include="Content\sass\ie1.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ie.scss</DependentUpon>
     </Content>
-    <Content Include="Content\sass\ie.scss">
+    <Content Include="Content\sass\partials\_base.scss">
       <Generator>ScssGenerator</Generator>
-      <LastGenOutput>ie.css</LastGenOutput>
+      <LastGenOutput>_base1.css</LastGenOutput>
     </Content>
-    <Content Include="Content\sass\partials\_base.css">
+    <Content Include="Content\sass\partials\_base1.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_base.scss</DependentUpon>
     </Content>
-    <Content Include="Content\sass\partials\_base.scss">
+    <Content Include="Content\sass\print.scss">
       <Generator>ScssGenerator</Generator>
-      <LastGenOutput>_base.css</LastGenOutput>
+      <LastGenOutput>print1.css</LastGenOutput>
     </Content>
-    <Content Include="Content\sass\print.css">
+    <Content Include="Content\sass\print1.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>print.scss</DependentUpon>
     </Content>
-    <Content Include="Content\sass\print.scss">
+    <Content Include="Content\sass\screen.scss">
       <Generator>ScssGenerator</Generator>
-      <LastGenOutput>print.css</LastGenOutput>
+      <LastGenOutput>screen1.css</LastGenOutput>
     </Content>
-    <Content Include="Content\sass\screen.css">
+    <Content Include="Content\sass\screen1.css">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>screen.scss</DependentUpon>
     </Content>
-    <Content Include="Content\sass\screen.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>screen.css</LastGenOutput>
-    </Content>
-    <Content Include="Content\css\ie.css" />
-    <Content Include="Content\css\print.css" />
-    <Content Include="Content\css\screen.css" />
-    <Content Include="Content\Web.config" />
-    <None Include="Views\index.cshtml" />
-    <None Include="Views\Shared\_layout.cshtml" />
+    <Content Include="Content\scripts\libs\jquery-1.7.2.js" />
+    <Content Include="Content\scripts\views\testview.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -132,22 +171,14 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Views\Test\index.cshtml" />
-    <Compile Include="Helpers\ResponseExtensions.cs" />
-    <Compile Include="Modules\APIModules\BaseAPIModule.cs" />
-    <Compile Include="Modules\APIModules\HelloAPIModule.cs" />
-    <Compile Include="Modules\BaseModule.cs" />
-    <Compile Include="Modules\ViewModules\HelloViewModule.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Folder Include="Content\less\" />
+    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="config.rb" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoCache.Core\PhotoCache.Core.csproj">
@@ -155,8 +186,23 @@
       <Name>PhotoCache.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="config.rb" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
@@ -181,11 +227,4 @@
 start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.10.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
 start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.10.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"</PostBuildEvent>
   </PropertyGroup>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

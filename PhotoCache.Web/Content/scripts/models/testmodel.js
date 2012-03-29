@@ -1,0 +1,3 @@
+﻿function testmodel() {
+    alert("OMG!");
+}
