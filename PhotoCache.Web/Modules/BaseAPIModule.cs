@@ -1,4 +1,4 @@
-﻿namespace PhotoCache.Web.Modules.APIModules
+﻿namespace PhotoCache.Web.Modules
 {
     public class BaseAPIModule : BaseModule
     {
