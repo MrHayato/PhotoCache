@@ -1,7 +1,4 @@
-﻿using System.Configuration;
-using MongoDB.Driver;
-using Nancy;
-using Nancy.ViewEngines.Razor;
+﻿using Nancy;
 
 namespace PhotoCache.Web.Modules
 {
@@ -13,20 +10,6 @@ namespace PhotoCache.Web.Modules
 
         public BaseModule()
         {
-        }
-
-        public MongoDatabase Database
-        {
-            get
-            {
-                return MongoDatabase.Create(GetMongoDbConnectionString());
-            }
-        }
-
-        private string GetMongoDbConnectionString()
-        {
-            return ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ??
-                "mongodb://localhost:27017/photoCache";
         }
     }
 }

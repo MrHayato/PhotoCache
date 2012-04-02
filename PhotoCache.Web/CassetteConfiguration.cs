@@ -13,7 +13,6 @@ namespace PhotoCache.Web
     {
         private const string ScriptsFolder = "Content/scripts";
         private const string StylesheetsFolder = "Content/css";
-        private const string TemplatesFolder = "Content/templates";
 
         public void Configure(BundleCollection bundles, CassetteSettings settings)
         {

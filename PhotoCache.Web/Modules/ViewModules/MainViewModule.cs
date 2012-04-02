@@ -1,8 +1,8 @@
 ﻿namespace PhotoCache.Web.Modules.ViewModules
 {
-    public class HelloViewModule : BaseModule
+    public class MainViewModule : BaseModule
     {
-        public HelloViewModule()
+        public MainViewModule()
         {
             Get["/"] = x => View["Index.cshtml"];
         }
