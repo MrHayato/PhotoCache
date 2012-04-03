@@ -1,11 +1,14 @@
-﻿namespace PhotoCache.Web.Modules.ViewModules
+﻿using Nancy.Authentication.Forms;
+
+namespace PhotoCache.Web.Modules.ViewModules
 {
     public class UserViewModule : BaseModule
     {
         public UserViewModule()
         {
-            Get["/login"] = x => View["User/Login.cshtml"];
-            Get["/register"] = x => View["User/Register.cshtml"];
+            Get["/register"] = x => RenderView("User/Register.cshtml");
+            Get["/login"] = x => RenderView("User/Login.cshtml");
+            Get["/logout"] = x => this.LogoutAndRedirect("~/");
         }
     }
 }

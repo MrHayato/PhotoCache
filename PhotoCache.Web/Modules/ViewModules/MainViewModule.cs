@@ -4,7 +4,8 @@
     {
         public MainViewModule()
         {
-            Get["/"] = x => View["Index.cshtml"];
+            Get["/"] = x => RenderView("Index.cshtml");
+            Get["/about"] = x => RenderView("About.cshtml");
         }
     }
 }

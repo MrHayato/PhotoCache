@@ -15,24 +15,24 @@ namespace PhotoCache.Web.Modules.APIModules
         public UserModule(IMongoRepository<UserModel> users)
         {
             _users = users;
-            Get["/newuser"] = x => CreateNewUser();
+            Post["/newuser"] = x => CreateNewUser();
         }
 
         private Response CreateNewUser()
         {
-            if (!Request.Query.username.HasValue || !Request.Query.password.HasValue)
+            if (!Data.UserName.HasValue || !Data.Password.HasValue)
                 return Response.Error("No username or password specified.");
 
-            var username = (string)Request.Query.username;
-            var password = (string)Request.Query.password;
+            var username = (string)Data.UserName;
+            var password = (string)Data.Password;
             
             if (_users.CreateQuery(Query.EQ("StoredUsername", username)).Any())
-                return Response.Error("UserName already exists.");
+                return Response.Error("The username '" + username + "' already exists.");
 
             var user = new UserModel
                 {
                     FirstName = DateTime.Now.ToShortTimeString(),
-                    LastName = "TestUser",
+                    LastName = (string)Data.FirstName,
                     UserName = username,
                     StoredUserName = username.ToLower(),
                     Password = password,

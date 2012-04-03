@@ -2,7 +2,6 @@
 using System.Globalization;
 using System.Linq;
 using System.Threading;
-using System.Web;
 using Cassette.Nancy;
 using MongoDB.Driver;
 using Nancy;

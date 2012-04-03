@@ -22,14 +22,14 @@ namespace Res {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class _Layout {
+    public class About {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal _Layout() {
+        internal About() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Res {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.Shared._Layout", typeof(_Layout).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.About", typeof(About).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,65 @@ namespace Res {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PhotoCache.
+        ///   Looks up a localized string similar to Step 1.
         /// </summary>
-        public static string CompanyName {
+        public static string LabelStep1 {
             get {
-                return ResourceManager.GetString("CompanyName", resourceCulture);
+                return ResourceManager.GetString("LabelStep1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remember Me.
+        ///   Looks up a localized string similar to Step 2.
         /// </summary>
-        public static string RememberMe {
+        public static string LabelStep2 {
             get {
-                return ResourceManager.GetString("RememberMe", resourceCulture);
+                return ResourceManager.GetString("LabelStep2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step 3.
+        /// </summary>
+        public static string LabelStep3 {
+            get {
+                return ResourceManager.GetString("LabelStep3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This will be a long paragraph about PhotoCache..
+        /// </summary>
+        public static string ParaAbout {
+            get {
+                return ResourceManager.GetString("ParaAbout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Download the PhotoCache app for your mobile device..
+        /// </summary>
+        public static string ParaStep1 {
+            get {
+                return ResourceManager.GetString("ParaStep1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Take a picture of the scenery using the PhotoCache mobile application..
+        /// </summary>
+        public static string ParaStep2 {
+            get {
+                return ResourceManager.GetString("ParaStep2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post the picture to PhotoCache and have other players find the same spot. You get points based on the number of people that takes the same picture!.
+        /// </summary>
+        public static string ParaStep3 {
+            get {
+                return ResourceManager.GetString("ParaStep3", resourceCulture);
             }
         }
     }

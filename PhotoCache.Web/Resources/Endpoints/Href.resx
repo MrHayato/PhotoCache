@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LabelHeroHeader" xml:space="preserve">
-    <value>Welcome to PhotoCache!</value>
+  <data name="About" xml:space="preserve">
+    <value>/about</value>
   </data>
-  <data name="ParaAboutPhotoCache" xml:space="preserve">
-    <value>PhotoCache is da bomb. You will thoroughly enjoy taking photoes of the world around you and sharing it for all to see.</value>
+  <data name="EditProfile" xml:space="preserve">
+    <value>/user/edit</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>/</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>/login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>/logout</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>/register</value>
   </data>
 </root>

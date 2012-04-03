@@ -22,14 +22,14 @@ namespace Res {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Index {
+    public class API {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Index() {
+        internal API() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Res {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.Index", typeof(Index).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.Links.API", typeof(API).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,20 +61,20 @@ namespace Res {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to PhotoCache!.
+        ///   Looks up a localized string similar to /api/login.
         /// </summary>
-        public static string LabelHeroHeader {
+        public static string Login {
             get {
-                return ResourceManager.GetString("LabelHeroHeader", resourceCulture);
+                return ResourceManager.GetString("Login", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PhotoCache is da bomb. You will thoroughly enjoy taking photoes of the world around you and sharing it for all to see..
+        ///   Looks up a localized string similar to /api/register.
         /// </summary>
-        public static string ParaAboutPhotoCache {
+        public static string Register {
             get {
-                return ResourceManager.GetString("ParaAboutPhotoCache", resourceCulture);
+                return ResourceManager.GetString("Register", resourceCulture);
             }
         }
     }

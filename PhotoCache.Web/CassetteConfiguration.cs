@@ -1,6 +1,5 @@
 using System.IO;
 using Cassette.Configuration;
-using Cassette.HtmlTemplates;
 using Cassette.Scripts;
 using Cassette.Stylesheets;
 
@@ -34,7 +33,8 @@ namespace PhotoCache.Web
                     "bootstrap-2.0.2.js",
                     "underscore-1.3.1.js",
                     "backbone-0.9.2.js",
-                    "backbone.modelbinding-0.5.0.js"
+                    "backbone.modelbinding-0.5.0.js",
+                    "scaffolding.js"
                 });
 
             //Our scripts

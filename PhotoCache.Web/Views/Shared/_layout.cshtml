@@ -9,32 +9,46 @@
 }
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <title>@Res._Layout.CompanyName</title>
+    <head>
+        <meta charset="utf-8" />
+        <title>@Res.Shared.Layout.CompanyName</title>
     
-    @Bundles.RenderStylesheets("css-libs")
-    @Bundles.RenderStylesheets()
-</head>
+        @Bundles.RenderStylesheets("css-libs")
+        @Bundles.RenderStylesheets()
+    </head>
 <body>
     <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
-                <a class="brand" href="/">@Res._Layout.CompanyName</a>
+                <a class="brand" href="@Res.Href.Home">@Res.Shared.Layout.CompanyName</a>
                 <div class="nav-collapse">
-                    <ul class="nav">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                    <ul class="nav nav-pills">
+                        <li><a rel="dashboard" href="@Res.Href.Home">@Res.Shared.Elements.MenuDashboard</a></li>
+                        <li><a rel="about" href="@Res.Href.About">@Res.Shared.Elements.MenuAbout</a></li>
                     </ul>
                 </div>
                 
-                    <form class="navbar-form pull-right form-inline" action="/api/login" method="POST">
-                        <input name="username" class="input-small" type="text" placeholder="User Name" />
-                        <input name="password" class="input-small" type="password" placeholder="Password" />
-                        <label class="checkbox"><input type="checkbox" name="RememberMe" />@Res._Layout.RememberMe</label>
-                        <input type="submit" class="btn" value="Login" />
+                @if (Model.CurrentUser == null)
+                {
+                    <form class="navbar-form pull-right form-inline" action="@Res.API.Login" method="POST">
+                        <input name="username" class="input-small" type="text" placeholder="@Res.Shared.Elements.LabelUserName" />
+                        <input name="password" class="input-small" type="password" placeholder="@Res.Shared.Elements.LabelPassword" />
+                        <label class="checkbox"><input type="checkbox" name="RememberMe" />@Res.Shared.Elements.CheckboxRememberMe</label>
+                        <input type="submit" class="btn" value="@Res.Shared.Elements.ButtonLogin" />
                     </form>
+                } else
+                {
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">@Model.CurrentUser.UserName&nbsp;<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Res.Href.EditProfile">@Res.Shared.Elements.LinkEditProfile</a></li>
+                                <li class="divider"></li>
+                                <li><a href="@Res.Href.Logout">@Res.Shared.Elements.ButtonLogout</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
                 <!--/.nav-collapse -->
             </div>
         </div>
@@ -47,8 +61,7 @@
 
         <hr>
         <footer>
-            <p>
-                &copy; @Res._Layout.CompanyName 2012</p>
+            <p>&copy; @Res.Shared.Layout.CompanyName 2012</p>
         </footer>
     </div>
 

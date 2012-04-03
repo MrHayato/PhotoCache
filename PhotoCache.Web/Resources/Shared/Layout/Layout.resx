@@ -120,7 +120,4 @@
   <data name="CompanyName" xml:space="preserve">
     <value>PhotoCache</value>
   </data>
-  <data name="RememberMe" xml:space="preserve">
-    <value>Remember Me</value>
-  </data>
 </root>

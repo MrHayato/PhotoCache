@@ -117,10 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="LabelHeroHeader" xml:space="preserve">
-    <value>Welcome to PhotoCache!</value>
+  <data name="LabelStep1" xml:space="preserve">
+    <value>Step 1</value>
   </data>
-  <data name="ParaAboutPhotoCache" xml:space="preserve">
-    <value>PhotoCache is da bomb. You will thoroughly enjoy taking photoes of the world around you and sharing it for all to see.</value>
+  <data name="LabelStep2" xml:space="preserve">
+    <value>Step 2</value>
+  </data>
+  <data name="LabelStep3" xml:space="preserve">
+    <value>Step 3</value>
+  </data>
+  <data name="ParaAbout" xml:space="preserve">
+    <value>This will be a long paragraph about PhotoCache.</value>
+  </data>
+  <data name="ParaStep1" xml:space="preserve">
+    <value>Download the PhotoCache app for your mobile device.</value>
+  </data>
+  <data name="ParaStep2" xml:space="preserve">
+    <value>Take a picture of the scenery using the PhotoCache mobile application.</value>
+  </data>
+  <data name="ParaStep3" xml:space="preserve">
+    <value>Post the picture to PhotoCache and have other players find the same spot. You get points based on the number of people that takes the same picture!</value>
   </data>
 </root>

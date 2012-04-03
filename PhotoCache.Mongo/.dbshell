@@ -6,3 +6,12 @@ show dbs
 show collections
 db.help()
 3+3
+help
+use photoCache
+show collections
+UserModel.help()
+db.help()
+db['UserModel']
+db['UserModel'].findAll()
+db['UserModel'].findAll
+db['UserModel'].find()
