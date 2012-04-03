@@ -39,7 +39,7 @@ namespace Res {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.Links.Href", typeof(Href).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PhotoCache.Web.Resources.Endpoints.Href", typeof(Href).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
