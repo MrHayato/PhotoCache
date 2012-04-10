@@ -70,7 +70,7 @@ namespace Res {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to /api/register.
+        ///   Looks up a localized string similar to /api/user/register.
         /// </summary>
         public static string Register {
             get {

@@ -4,7 +4,6 @@ using System.Linq;
 using FluentValidation.Results;
 using Nancy;
 using Nancy.Responses;
-using Nancy.Validation;
 using Newtonsoft.Json;
 using PhotoCache.Web.Models;
 
@@ -46,8 +45,14 @@ namespace PhotoCache.Web.Helpers
 
         public static Response Error (this IResponseFormatter formatter, IEnumerable<ValidationFailure> messages, HttpStatusCode status = HttpStatusCode.BadRequest )
         {
-            List<string> errors = messages.Select(validationFailure => validationFailure.ErrorMessage).ToList();
-            return formatter.Error(errors, status);
+            Dictionary<string, string> errors = messages.ToDictionary(
+                validationFailure => validationFailure.PropertyName,
+                validationFailure => validationFailure.ErrorMessage);
+
+            var error = new ValidationErrorModel { Messages = errors };
+            var jsonResponse = new JsonResponse<ValidationErrorModel>(error, new DefaultJsonSerializer()) { StatusCode = status };
+
+            return jsonResponse;
         }
 
         public static T FromJson<T>(this Stream body)

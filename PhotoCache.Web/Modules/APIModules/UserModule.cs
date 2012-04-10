@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Linq;
-using MongoDB.Driver.Builders;
+using System.Collections.Generic;
+using FluentValidation;
 using Nancy;
+using Nancy.ModelBinding;
 using PhotoCache.Core.Models;
 using PhotoCache.Core.Persistence;
 using PhotoCache.Web.Helpers;
@@ -10,41 +11,52 @@ namespace PhotoCache.Web.Modules.APIModules
 {
     public class UserModule : BaseAPIModule
     {
-        private IMongoRepository<UserModel> _users;
+        private IRavenRepository<UserModel> _users;
+        private IValidator<UserModel> _userValidator;
 
-        public UserModule(IMongoRepository<UserModel> users)
+        public UserModule(IRavenRepository<UserModel> users, IValidator<UserModel> userValidator)
         {
             _users = users;
-            Post["/newuser"] = x => CreateNewUser();
+            _userValidator = userValidator;
+            Post["/user/register"] = x => CreateNewUser();
+            Get["/user/validate"] = x => Validate();
+        }
+
+        private Response Validate()
+        {
+            UserModel user = this.Bind<UserModel>();
+            var queries = new List<string>();
+
+            foreach (var query in Request.Query)
+            {
+                queries.Add(query);
+            }
+
+            if (user.UserName == null)
+                user.UserName = "";
+
+            var result = _userValidator.Validate(user, queries.ToArray());
+
+            return !result.IsValid 
+                ? Response.Error(result.Errors) 
+                : new Response().Ok();
         }
 
         private Response CreateNewUser()
         {
-            if (!Data.UserName.HasValue || !Data.Password.HasValue)
-                return Response.Error("No username or password specified.");
+            UserModel user = this.Bind<UserModel>();
 
-            var username = (string)Data.UserName;
-            var password = (string)Data.Password;
-            
-            if (_users.CreateQuery(Query.EQ("StoredUsername", username)).Any())
-                return Response.Error("The username '" + username + "' already exists.");
+            if (user.UserName == null)
+                user.UserName = "";
 
-            var user = new UserModel
-                {
-                    FirstName = DateTime.Now.ToShortTimeString(),
-                    LastName = (string)Data.FirstName,
-                    UserName = username,
-                    StoredUserName = username.ToLower(),
-                    Password = password,
-                    Role = Roles.User
-                };
-
-            var result = user.Validate();
+            var result = _userValidator.Validate(user);
 
             if (!result.IsValid)
                 return Response.Error(result.Errors);
 
-            _users.Create(user);
+            user.StoredUserName = user.UserName.ToLower();
+
+            _users.Store(user);
             return Response.AsJson(user).Created();
         }
     }

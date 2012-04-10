@@ -1,16 +1,21 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.Globalization;
-using System.Linq;
 using System.Threading;
 using Cassette.Nancy;
-using MongoDB.Driver;
+using FluentValidation;
 using Nancy;
 using Nancy.Authentication.Forms;
+using Nancy.Bootstrapper;
 using Nancy.Conventions;
 using Nancy.Session;
 using PhotoCache.Core.Models;
 using PhotoCache.Core.Persistence;
+using PhotoCache.Core.Validators;
 using PhotoCache.Web.Authentication;
+using Raven.Client;
+using Raven.Client.Document;
+using TinyIoC;
 
 namespace PhotoCache.Web
 {
@@ -23,30 +28,42 @@ namespace PhotoCache.Web
             CassetteStartup.ShouldOptimizeOutput = optimize;
         }
 
-        protected override void ApplicationStartup(TinyIoC.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines)
+        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
         {
             base.ApplicationStartup(container, pipelines);
 
             CookieBasedSessions.Enable(pipelines);
         }
 
-        protected override void ConfigureApplicationContainer(TinyIoC.TinyIoCContainer container)
+        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
         {
-            var connectionString = ConfigurationManager.AppSettings.Get("MONGOHQ_URL") ?? "mongodb://localhost:27017/photoCache";
-            var dbName = connectionString.Split('/').Last();
-            var server = MongoServer.Create(connectionString);
-            var database = server.GetDatabase(dbName);
+            var documentStore = new DocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING" };
+            documentStore.Initialize();
 
-            container.Register(server);
-            container.Register(database);
-            container.Register<IMongoRepository<UserModel>>(new MongoRepository<UserModel>(database));
+            var originalKeyGen = documentStore.Conventions.DocumentKeyGenerator;
+            documentStore.Conventions.DocumentKeyGenerator = delegate(object obj)
+                {
+                    var userModel = obj as IModel;
+
+                    if (userModel != null)
+                        return Guid.NewGuid().ToString();
+                    
+                    return originalKeyGen(obj);
+                };
+
+            var userRepo = new RavenRepository<UserModel>(documentStore);
+
+            container.Register<IDocumentStore>(documentStore);
             container.Register<IUserMapper, UserDatabase>();
+            container.Register<IRavenRepository<UserModel>>(userRepo);
+            container.Register<IValidator<UserModel>>(new UserModelValidator(userRepo));
         }
 
-        protected override void RequestStartup(TinyIoC.TinyIoCContainer container, Nancy.Bootstrapper.IPipelines pipelines, NancyContext context)
+        protected override void RequestStartup(TinyIoCContainer container, IPipelines pipelines, NancyContext context)
         {
             const string defaultLang = "en";
-            var user = (UserIdentity)context.CurrentUser;
+            var currentUser = context.CurrentUser as UserIdentity;
+            var user = currentUser != null ? currentUser.User : null;
             var ci = new CultureInfo(defaultLang);
 
             if (user != null)

@@ -22,3 +22,4 @@ _ReSharper.*
 release/
 .sass-cache/
 AzureBackup/
+packages/RavenDB.1.0.701/server

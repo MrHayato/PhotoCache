@@ -1,6 +1,5 @@
 using System;
 using System.Linq;
-using MongoDB.Driver.Builders;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
 using PhotoCache.Core.Models;
@@ -10,25 +9,23 @@ namespace PhotoCache.Web.Authentication
 {
     public class UserDatabase : IUserMapper
     {
-        private static IMongoRepository<UserModel> _users; 
+        private static IRavenRepository<UserModel> _users; 
 
-        public UserDatabase(IMongoRepository<UserModel> users)
+        public UserDatabase(IRavenRepository<UserModel> users)
         {
             _users = users;
         }
 
         public IUserIdentity GetUserFromIdentifier(Guid id)
         {
-            var user = _users.Get(id);
+            var user = _users.Load(id);
             return new UserIdentity { User = user, UserName = user.UserName };
         }
 
         public static UserModel ValidateUser(string username, string password)
         {
-            return _users.CreateQuery(
-                Query.And(
-                    Query.EQ("StoredUserName", username.ToLower()), 
-                    Query.EQ("Password", password))).FirstOrDefault();
+            return _users.Query().FirstOrDefault(x => x.StoredUserName == username.ToLower() &&
+                                                      x.Password == password.ToLower());
         }
     }
 }

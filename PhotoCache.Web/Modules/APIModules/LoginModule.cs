@@ -10,10 +10,10 @@ namespace PhotoCache.Web.Modules.APIModules
 {
     public class LoginModule : BaseAPIModule
     {
+        private IRavenRepository<UserModel> _users;
         private const int expiryDays = 1; //Number of days a user stays logged in without the "remember me" option
-        private IMongoRepository<UserModel> _users;
 
-        public LoginModule(IMongoRepository<UserModel> users)
+        public LoginModule(IRavenRepository<UserModel> users)
         {
             _users = users;
             Post["/login"] = x => Login();
@@ -30,7 +30,7 @@ namespace PhotoCache.Web.Modules.APIModules
                 return Response.Error("UserName or password is incorrect.");
 
             user.LastLogin = DateTime.Now;
-            _users.Update(user);
+            _users.Store(user);
 
             DateTime? expiry = null;
             if (!Request.Form.RememberMe.HasValue)

@@ -132,8 +132,14 @@
   <data name="CheckboxRememberMe" xml:space="preserve">
     <value>Remember Me</value>
   </data>
+  <data name="LabelLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
   <data name="LabelPassword" xml:space="preserve">
     <value>Password</value>
+  </data>
+  <data name="LabelRegister" xml:space="preserve">
+    <value>Register</value>
   </data>
   <data name="LabelUserName" xml:space="preserve">
     <value>User Name</value>

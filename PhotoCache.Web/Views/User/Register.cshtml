@@ -1,48 +1,35 @@
-﻿@{
+﻿@using Cassette.Nancy
+@{
     Layout = "Shared/_Layout.cshtml";
+
+    Bundles.Reference("Content/scripts/views/RegistrationView.js");
 }
 
-
-<form class="well form-horizontal" method="POST" action="@Res.API.Register">
+<form id="registration-form" class="well form-horizontal" method="POST" action="@Res.API.Register">
     <fieldset>
         <legend>@Res.User.Register.LabelCreateAccount</legend>
         <div class="control-group">
-            <label class="control-label" for="username">@Res.User.Register.LabelUserName</label>
+            <label class="control-label" for="UserName">@Res.User.Register.LabelUserName</label>
             <div class="controls">
-                <input type="text" class="input-xlarge" id="username" name="UserName">
+                <input type="text" class="input-xlarge" id="UserName" name="UserName" autocomplete="off">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="password">@Res.User.Register.LabelPassword</label>
+            <label class="control-label" for="Password">@Res.User.Register.LabelPassword</label>
             <div class="controls">
-                <input type="password" class="input-xlarge" id="password" name="Password">
+                <input type="password" class="input-xlarge" id="Password" name="Password" autocomplete="off">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="password2">@Res.User.Register.LabelPasswordConfirm</label>
+            <label class="control-label" for="PasswordConfirm">@Res.User.Register.LabelPasswordConfirm</label>
             <div class="controls">
-                <input type="password" class="input-xlarge" id="password2" name="PasswordConfirm">
+                <input type="password" class="input-xlarge" id="PasswordConfirm" name="PasswordConfirm" autocomplete="off">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="email">@Res.User.Register.LabelEmail</label>
+            <label class="control-label" for="Email">@Res.User.Register.LabelEmail</label>
             <div class="controls">
-                <input type="password" class="input-xlarge" id="email" name="Email">
-            </div>
-        </div>
-        
-        <hr/>
-        
-        <div class="control-group">
-            <label class="control-label" for="firstname">@Res.User.Register.LabelFirstName</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="firstname" name="FirstName"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="lastname">@Res.User.Register.LabelLastName</label>
-            <div class="controls">
-                <input type="text" class="input-xlarge" id="lastname" name="LastName"/>
+                <input type="email" class="input-xlarge" id="Email" name="Email" autocomplete="off">
             </div>
         </div>
         
@@ -56,7 +43,7 @@
         </div>
         
         <div class="form-actions">
-            <input type="submit" class="btn btn-primary" value="@Res.Shared.Elements.ButtonSubmit" />
+            <input id="SubmitForm" type="submit" class="btn btn-primary" value="@Res.Shared.Elements.ButtonSubmit" />
         </div>
     </fieldset>
 </form>

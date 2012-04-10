@@ -121,6 +121,6 @@
     <value>/api/login</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>/api/register</value>
+    <value>/api/user/register</value>
   </data>
 </root>

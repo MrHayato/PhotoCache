@@ -106,11 +106,29 @@ namespace Res.Shared {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Login.
+        /// </summary>
+        public static string LabelLogin {
+            get {
+                return ResourceManager.GetString("LabelLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string LabelPassword {
             get {
                 return ResourceManager.GetString("LabelPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register.
+        /// </summary>
+        public static string LabelRegister {
+            get {
+                return ResourceManager.GetString("LabelRegister", resourceCulture);
             }
         }
         

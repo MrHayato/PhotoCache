@@ -37,14 +37,16 @@
     <Reference Include="AjaxMin">
       <HintPath>..\packages\AjaxMin.4.46.4422.26284\lib\net20\AjaxMin.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette">
-      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Cassette.dll</HintPath>
+    <Reference Include="AsyncCtpLibrary">
+      <HintPath>..\packages\RavenDB.1.0.701\lib\net40\AsyncCtpLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.dotless.Core">
-      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Cassette.dotless.Core.dll</HintPath>
+    <Reference Include="Cassette, Version=1.2.1.30492, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.1.2.1\lib\net40-Client\Cassette.dll</HintPath>
     </Reference>
-    <Reference Include="Cassette.Nancy">
-      <HintPath>..\packages\Cassette.Nancy.1.1.1.0\lib\net40\Cassette.Nancy.dll</HintPath>
+    <Reference Include="Cassette.Nancy, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Cassette.Nancy.1.2.0.0\lib\net40\Cassette.Nancy.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
@@ -52,17 +54,29 @@
     <Reference Include="FluentValidation">
       <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
     </Reference>
+    <Reference Include="IronRuby">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby.Libraries.Yaml">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.Yaml.dll</HintPath>
+    </Reference>
     <Reference Include="Jurassic">
       <HintPath>..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\Microsoft.Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation">
       <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\mongocsharpdriver.1.4\lib\net35\MongoDB.Bson.dll</HintPath>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\packages\mongocsharpdriver.1.4\lib\net35\MongoDB.Driver.dll</HintPath>
+    <Reference Include="Microsoft.Scripting.Metadata">
+      <HintPath>..\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.Metadata.dll</HintPath>
     </Reference>
     <Reference Include="Nancy">
       <HintPath>..\packages\Nancy.0.10.0\lib\net40\Nancy.dll</HintPath>
@@ -86,9 +100,31 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.0.8\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="Pandora">
-      <HintPath>..\packages\Cassette.1.1.0\lib\net40-Client\Pandora.dll</HintPath>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="Pandora, Version=0.1.0.4, Culture=neutral, PublicKeyToken=b270b2005bfa7bcd, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cassette.1.2.1\lib\net40-Client\Pandora.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Abstractions">
+      <HintPath>..\packages\RavenDB.1.0.701\lib\net40\Raven.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Debug">
+      <HintPath>..\packages\RavenDB.1.0.701\lib\net40\Raven.Client.Debug.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.Lightweight">
+      <HintPath>..\packages\RavenDB.1.0.701\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    </Reference>
+    <Reference Include="Raven.Client.MvcIntegration">
+      <HintPath>..\packages\RavenDB.1.0.701\lib\net40\Raven.Client.MvcIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="SassAndCoffee.Core">
+      <HintPath>..\packages\SassAndCoffee.Core.2.0.2.0\lib\net40-Client\SassAndCoffee.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SassAndCoffee.Ruby">
+      <HintPath>..\packages\SassAndCoffee.Ruby.2.0.2.0\lib\net40-Client\SassAndCoffee.Ruby.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -122,6 +158,9 @@
     <Compile Include="CassetteConfiguration.cs" />
     <Compile Include="Authentication\UserDatabase.cs" />
     <Content Include="Content\scripts\libs\scaffolding.js" />
+    <Content Include="Content\scripts\models\RegistrationModel.js" />
+    <Compile Include="Models\IViewModel.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Resources\About.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -162,7 +201,6 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
-    <Content Include="Content\css\index.css" />
     <Content Include="Content\css\libs\bootstrap-responsive.css" />
     <Content Include="Content\css\libs\bootstrap.css" />
     <Content Include="Content\css\libs\fonts.css" />
@@ -184,7 +222,7 @@
     <Compile Include="Models\RestErrorModel.cs" />
     <Compile Include="Modules\APIModules\LoginModule.cs" />
     <Compile Include="Modules\APIModules\UserModule.cs" />
-    <Compile Include="Modules\APIModules\UserSecureModule.cs" />
+    <Compile Include="Modules\APIModules\SecureUserModule.cs" />
     <Compile Include="Modules\BaseAPIModule.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\ViewModules\MainViewModule.cs" />
@@ -192,45 +230,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\sass\ie.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>ie1.css</LastGenOutput>
-    </Content>
-    <Content Include="Content\sass\ie1.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ie.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\sass\partials\_base.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>_base1.css</LastGenOutput>
-    </Content>
-    <Content Include="Content\sass\partials\_base1.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_base.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\sass\print.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>print1.css</LastGenOutput>
-    </Content>
-    <Content Include="Content\sass\print1.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>print.scss</DependentUpon>
-    </Content>
-    <Content Include="Content\sass\screen.scss">
-      <Generator>ScssGenerator</Generator>
-      <LastGenOutput>screen1.css</LastGenOutput>
-    </Content>
-    <Content Include="Content\sass\screen1.css">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>screen.scss</DependentUpon>
-    </Content>
     <Content Include="Content\scripts\libs\jquery-1.7.2.js" />
-    <Content Include="Content\scripts\models\TestModel.js" />
-    <Content Include="Content\scripts\views\TestView.js" />
+    <Content Include="Content\scripts\views\RegistrationView.js" />
     <Content Include="Content\templates\TestModelTemplate.htm" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -242,7 +243,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\less\" />
+    <Folder Include="Content\sass\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

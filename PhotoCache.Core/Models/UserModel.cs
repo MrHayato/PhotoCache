@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using FluentValidation.Results;
-using PhotoCache.Core.Validators;
 
 namespace PhotoCache.Core.Models
 {
@@ -13,8 +11,9 @@ namespace PhotoCache.Core.Models
         Admin = 99
     }
 
-    public class UserModel : BaseModel
+    public class UserModel : IModel
     {
+        public Guid Id { get; set; }
         public string UserName { get; set; }
         public string StoredUserName { get; set; }
         public string Email { get; set; }
@@ -30,12 +29,6 @@ namespace PhotoCache.Core.Models
         public UserModel()
         {
             Achievements = new List<AchievementModel>();
-        }
-
-        public ValidationResult Validate()
-        {
-            var validator = new UserModelValidator();
-            return validator.Validate(this);
         }
     }
 }
