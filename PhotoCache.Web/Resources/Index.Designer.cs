@@ -70,7 +70,7 @@ namespace Res {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PhotoCache is da bomb. You will thoroughly enjoy taking photoes of the world around you and sharing it for all to see..
+        ///   Looks up a localized string similar to PhotoCache is da bomb. You will thoroughly enjoy taking photos of the world around you and sharing it for all to see..
         /// </summary>
         public static string ParaAboutPhotoCache {
             get {

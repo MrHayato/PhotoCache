@@ -45,10 +45,7 @@ namespace PhotoCache.Web
                 {
                     var userModel = obj as IModel;
 
-                    if (userModel != null)
-                        return Guid.NewGuid().ToString();
-                    
-                    return originalKeyGen(obj);
+                    return userModel != null ? Guid.NewGuid().ToString() : originalKeyGen(obj);
                 };
 
             var userRepo = new RavenRepository<UserModel>(documentStore);

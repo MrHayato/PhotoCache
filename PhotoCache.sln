@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoCache.Core", "PhotoCac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoCache.Web", "PhotoCache.Web\PhotoCache.Web.csproj", "{C1F693B9-4B32-474D-819A-223DA9A424BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotoCache.Core.Specs", "PhotoCache.Core.Tests\PhotoCache.Core.Specs.csproj", "{C6EEB7E5-4C72-4775-805A-D70867EF99D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{C1F693B9-4B32-474D-819A-223DA9A424BE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C1F693B9-4B32-474D-819A-223DA9A424BE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C1F693B9-4B32-474D-819A-223DA9A424BE}.Release|x86.ActiveCfg = Release|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{C6EEB7E5-4C72-4775-805A-D70867EF99D4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

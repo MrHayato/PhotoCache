@@ -7,7 +7,7 @@ namespace PhotoCache.Core.Models
     public enum Roles
     {
         User = 1,
-        Moderator = 2,
+        Moderator = 90,
         Admin = 99
     }
 

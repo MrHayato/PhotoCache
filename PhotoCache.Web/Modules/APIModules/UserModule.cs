@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using FluentValidation;
 using Nancy;
 using Nancy.ModelBinding;
@@ -32,9 +31,6 @@ namespace PhotoCache.Web.Modules.APIModules
                 queries.Add(query);
             }
 
-            if (user.UserName == null)
-                user.UserName = "";
-
             var result = _userValidator.Validate(user, queries.ToArray());
 
             return !result.IsValid 
@@ -45,9 +41,6 @@ namespace PhotoCache.Web.Modules.APIModules
         private Response CreateNewUser()
         {
             UserModel user = this.Bind<UserModel>();
-
-            if (user.UserName == null)
-                user.UserName = "";
 
             var result = _userValidator.Validate(user);
 

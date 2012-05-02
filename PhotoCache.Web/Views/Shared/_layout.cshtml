@@ -4,7 +4,6 @@
     Bundles.Reference("Content/css/libs/", "css-libs");
 
     //Common scripts
-    Bundles.Reference("Content/scripts/libs/jquery-1.7.2.js", "script-libs");
     Bundles.Reference("Content/scripts/libs/", "script-libs");
 }
 <!DOCTYPE html>
@@ -12,7 +11,7 @@
     <head>
         <meta charset="utf-8" />
         <title>@Res.Shared.Layout.CompanyName</title>
-    
+        
         @Bundles.RenderStylesheets("css-libs")
         @Bundles.RenderStylesheets()
     </head>
