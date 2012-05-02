@@ -44,7 +44,7 @@ namespace PhotoCache.Core.Specs.ValidatorSpecs
 
         private Establish that = () =>
         {
-            NewUser2 = new UserModel { UserName = "a" };
+            NewUser2 = new UserModel { UserName = "abc" };
         };
 
         private Because of = () => { Result = Validator.Validate(NewUser2, "UserName"); };
