@@ -1,22 +1,19 @@
-﻿using System.Collections.Generic;
-using FluentValidation;
+﻿using FluentValidation;
 using Nancy;
 using Nancy.ModelBinding;
 using PhotoCache.Core.Models;
-using PhotoCache.Core.Persistence;
+using PhotoCache.Core.Services;
 using PhotoCache.Web.Helpers;
 
 namespace PhotoCache.Web.Modules.APIModules
 {
     public class UserModule : BaseAPIModule
     {
-        private IRavenRepository<UserModel> _users;
-        private IValidator<UserModel> _userValidator;
+        private IModelService<UserModel> _modelService;
 
-        public UserModule(IRavenRepository<UserModel> users, IValidator<UserModel> userValidator)
+        public UserModule(IModelService<UserModel> modelService)
         {
-            _users = users;
-            _userValidator = userValidator;
+            _modelService = modelService;
             Post["/user/register"] = x => CreateNewUser();
             Get["/user/validate"] = x => Validate();
         }
@@ -24,14 +21,8 @@ namespace PhotoCache.Web.Modules.APIModules
         private Response Validate()
         {
             UserModel user = this.Bind<UserModel>();
-            var queries = new List<string>();
-
-            foreach (var query in Request.Query)
-            {
-                queries.Add(query);
-            }
-
-            var result = _userValidator.Validate(user, queries.ToArray());
+            
+            var result = _modelService.Validate(user, Queries);
 
             return !result.IsValid 
                 ? Response.Error(result.Errors) 
@@ -42,15 +33,16 @@ namespace PhotoCache.Web.Modules.APIModules
         {
             UserModel user = this.Bind<UserModel>();
 
-            var result = _userValidator.Validate(user);
-
-            if (!result.IsValid)
-                return Response.Error(result.Errors);
-
-            user.StoredUserName = user.UserName.ToLower();
-
-            _users.Store(user);
-            return Response.AsJson(user).Created();
+            try
+            {
+                user.StoredUserName = user.UserName.ToLower();
+                _modelService.Create(user);
+                return Response.AsJson(user).Created();
+            } 
+            catch (ValidationException e)
+            {
+                return Response.Error(e.Errors);
+            }
         }
     }
 }

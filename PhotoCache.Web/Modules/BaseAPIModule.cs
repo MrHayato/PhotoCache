@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using PhotoCache.Web.Helpers;
 
 namespace PhotoCache.Web.Modules
@@ -39,6 +40,21 @@ namespace PhotoCache.Web.Modules
                     }
                 }
                 return null;
+            }
+        }
+
+        protected string[] Queries
+        {
+            get
+            {
+                var queries = new List<string>();
+
+                foreach (var query in Request.Query)
+                {
+                    queries.Add(query);
+                }
+
+                return queries.ToArray();
             }
         }
     }

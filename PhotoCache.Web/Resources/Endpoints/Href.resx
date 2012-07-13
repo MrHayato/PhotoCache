@@ -123,6 +123,9 @@
   <data name="EditProfile" xml:space="preserve">
     <value>/user/edit</value>
   </data>
+  <data name="ForgotPassword" xml:space="preserve">
+    <value>/forgotpassword</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>/</value>
   </data>

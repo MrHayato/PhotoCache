@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\AchievementModel.cs" />
-    <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\IModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Persistence\IRavenRepository.cs" />
@@ -70,6 +69,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>UserModel.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\IModelService.cs" />
+    <Compile Include="Services\ModelService.cs" />
     <Compile Include="Validators\UserModelValidator.cs" />
   </ItemGroup>
   <ItemGroup>

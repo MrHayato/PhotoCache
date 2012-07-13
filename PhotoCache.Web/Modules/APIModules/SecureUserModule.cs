@@ -1,16 +1,16 @@
 ﻿using Nancy;
 using Nancy.Security;
 using PhotoCache.Core.Models;
-using PhotoCache.Core.Persistence;
+using PhotoCache.Core.Services;
 using PhotoCache.Web.Helpers;
 
 namespace PhotoCache.Web.Modules.APIModules
 {
     public class SecureUserModule : BaseAPIModule
     {
-        private IRavenRepository<UserModel> _users;
+        private IModelService<UserModel> _users;
 
-        public SecureUserModule(IRavenRepository<UserModel> users)
+        public SecureUserModule(IModelService<UserModel> users)
         {
             this.RequiresAuthentication();
             _users = users;

@@ -1,8 +1,9 @@
 ﻿using System;
+using FluentValidation;
 using Nancy;
 using Nancy.Authentication.Forms;
 using PhotoCache.Core.Models;
-using PhotoCache.Core.Persistence;
+using PhotoCache.Core.Services;
 using PhotoCache.Web.Authentication;
 using PhotoCache.Web.Helpers;
 
@@ -10,10 +11,10 @@ namespace PhotoCache.Web.Modules.APIModules
 {
     public class LoginModule : BaseAPIModule
     {
-        private IRavenRepository<UserModel> _users;
+        private IModelService<UserModel> _users;
         private const int expiryDays = 1; //Number of days a user stays logged in without the "remember me" option
 
-        public LoginModule(IRavenRepository<UserModel> users)
+        public LoginModule(IModelService<UserModel> users)
         {
             _users = users;
             Post["/login"] = x => Login();
@@ -27,10 +28,17 @@ namespace PhotoCache.Web.Modules.APIModules
             var user = UserDatabase.ValidateUser(username, password);
 
             if (user == null)
-                return Response.Error("UserName or password is incorrect.");
+                return Response.Error(Res.User.Login.IncorrectLogin);
 
-            user.LastLogin = DateTime.Now;
-            _users.Store(user);
+            try
+            {
+                user.LastLogin = DateTime.Now;
+                _users.Update(user);
+            }
+            catch (ValidationException ex)
+            {
+                return Response.Error(ex.Errors);
+            }
 
             DateTime? expiry = null;
             if (!Request.Form.RememberMe.HasValue)

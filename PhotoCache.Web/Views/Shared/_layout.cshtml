@@ -1,19 +1,12 @@
-﻿@using Cassette.Nancy
-@{
-    //Common styles
-    Bundles.Reference("Content/css/libs/", "css-libs");
-
-    //Common scripts
-    Bundles.Reference("Content/scripts/libs/", "script-libs");
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8" />
         <title>@Res.Shared.Layout.CompanyName</title>
         
-        @Bundles.RenderStylesheets("css-libs")
-        @Bundles.RenderStylesheets()
+        <link rel="stylesheet" href="./css/base.css" />
+        <script type="text/javascript" src="//commondev.iqmetrix.net/js/iq.bootstrap.min.js"></script>
+        <script type="text/javascript" src="./scripts/initializer.js"></script>
     </head>
 <body>
     <div class="navbar navbar-fixed-top">
@@ -29,13 +22,34 @@
                 
                 @if (Model.CurrentUser == null)
                 {
-                    <form class="navbar-form pull-right form-inline" action="@Res.API.Login" method="POST">
-                        <input name="username" class="input-small" type="text" placeholder="@Res.Shared.Elements.LabelUserName" />
-                        <input name="password" class="input-small" type="password" placeholder="@Res.Shared.Elements.LabelPassword" />
-                        <label class="checkbox"><input type="checkbox" name="RememberMe" />@Res.Shared.Elements.CheckboxRememberMe</label>
-                        <input type="submit" class="btn" value="@Res.Shared.Elements.ButtonLogin" />
-                        <a href="@Res.Href.Register" class="btn">@Res.Shared.Elements.LabelRegister</a>
-                    </form>
+                    <ul class="nav pull-right">
+                        <li class="dropdown">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">@Res.Shared.Elements.LabelLogin&nbsp;<b class="caret"></b></a>
+                            <div class="dropdown-menu register-form span4">
+                                <form action="@Res.API.Login" method="POST">
+                                    <div class="row">
+                                        <div class="span2">
+                                            <label for="login-username">@Res.Shared.Elements.LabelUserName</label>
+                                            <input id="login-username" name="username" class="input-medium" type="text" placeholder="@Res.Shared.Elements.LabelUserName" />
+                                            <label class="checkbox"><input type="checkbox" name="RememberMe" />@Res.Shared.Elements.CheckboxRememberMe</label>
+                                        </div>
+                                        <div class="span2">
+                                            <label for="login-password">@Res.Shared.Elements.LabelPassword</label>
+                                            <input id="login-password" name="password" class="input-medium" type="password" placeholder="@Res.Shared.Elements.LabelPassword" />
+                                            <a href="@Res.Href.ForgotPassword">@Res.Shared.Elements.LabelForgotPassword</a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <input type="submit" class="btn pull-right" value="@Res.Shared.Elements.ButtonLogin" />
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="divider-vertical"></li>
+                        <li>
+                            <a href="@Res.Href.Register">@Res.Shared.Elements.LabelRegister</a>
+                        </li>
+                    </ul>
                 }
                 else
                 {
@@ -60,14 +74,11 @@
             @RenderBody()
         </div>
 
-        <hr>
+        <hr />
+
         <footer>
             <p>&copy; @Res.Shared.Layout.CompanyName 2012</p>
         </footer>
     </div>
-
-    <!-- /container -->
-    @Bundles.RenderScripts("script-libs")
-    @Bundles.RenderScripts()
 </body>
 </html>

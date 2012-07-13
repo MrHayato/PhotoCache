@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
 using PhotoCache.Core.Models;
@@ -16,7 +17,7 @@ namespace PhotoCache.Web.Authentication
             _users = users;
         }
 
-        public IUserIdentity GetUserFromIdentifier(Guid id)
+        public IUserIdentity GetUserFromIdentifier(Guid id, NancyContext context)
         {
             var user = _users.Load(id);
             return new UserIdentity { User = user, UserName = user.UserName };

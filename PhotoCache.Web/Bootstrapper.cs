@@ -1,41 +1,28 @@
 ﻿using System;
-using System.Configuration;
 using System.Globalization;
 using System.Threading;
-using Cassette.Nancy;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using FluentValidation;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Bootstrapper;
+using Nancy.Bootstrappers.Windsor;
 using Nancy.Conventions;
 using Nancy.Session;
+using Nancy.Validation.FluentValidation;
 using PhotoCache.Core.Models;
 using PhotoCache.Core.Persistence;
-using PhotoCache.Core.Validators;
+using PhotoCache.Core.Services;
 using PhotoCache.Web.Authentication;
 using Raven.Client;
 using Raven.Client.Document;
-using TinyIoC;
 
 namespace PhotoCache.Web
 {
-    public class Bootstrapper : DefaultNancyBootstrapper
+    public class Bootstrapper : WindsorNancyBootstrapper
     {
-        public Bootstrapper()
-        {
-            bool optimize;
-            bool.TryParse(ConfigurationManager.AppSettings.Get("OptimizeCassette"), out optimize);
-            CassetteStartup.ShouldOptimizeOutput = optimize;
-        }
-
-        protected override void ApplicationStartup(TinyIoCContainer container, IPipelines pipelines)
-        {
-            base.ApplicationStartup(container, pipelines);
-
-            CookieBasedSessions.Enable(pipelines);
-        }
-
-        protected override void ConfigureApplicationContainer(TinyIoCContainer container)
+        private IDocumentStore CreateDocumentStore()
         {
             var documentStore = new DocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING" };
             documentStore.Initialize();
@@ -44,19 +31,36 @@ namespace PhotoCache.Web
             documentStore.Conventions.DocumentKeyGenerator = delegate(object obj)
                 {
                     var userModel = obj as IModel;
-
                     return userModel != null ? Guid.NewGuid().ToString() : originalKeyGen(obj);
                 };
 
-            var userRepo = new RavenRepository<UserModel>(documentStore);
-
-            container.Register<IDocumentStore>(documentStore);
-            container.Register<IUserMapper, UserDatabase>();
-            container.Register<IRavenRepository<UserModel>>(userRepo);
-            container.Register<IValidator<UserModel>>(new UserModelValidator(userRepo));
+            return documentStore;
         }
 
-        protected override void RequestStartup(TinyIoCContainer container, IPipelines pipelines, NancyContext context)
+        protected override void ApplicationStartup(IWindsorContainer container, IPipelines pipelines)
+        {
+            base.ApplicationStartup(container, pipelines);
+
+            CookieBasedSessions.Enable(pipelines);
+        }
+
+        protected override void ConfigureApplicationContainer(IWindsorContainer container)
+        {
+            container.Register(Component.For<IFluentAdapterFactory>().ImplementedBy<DefaultFluentAdapterFactory>().LifestyleSingleton());
+            container.Register(Component.For<IUserMapper>().ImplementedBy<UserDatabase>().LifestyleSingleton());
+            container.Register(Component.For(typeof(IDocumentStore)).Instance(CreateDocumentStore()).LifestyleSingleton());
+            container.Register(Component.For(typeof(IRavenRepository<>)).ImplementedBy(typeof(RavenRepository<>)).LifestyleSingleton());
+            container.Register(Component.For(typeof(IModelService<>)).ImplementedBy(typeof(ModelService<>)).LifestyleSingleton());
+
+            //Validators
+            container.Register(Classes
+                .FromAssemblyNamed("PhotoCache.Core")
+                .BasedOn(typeof(IValidator<>))
+                .WithService.Base()
+                .LifestyleSingleton());
+        }
+
+        protected override void RequestStartup(IWindsorContainer container, IPipelines pipelines, NancyContext context)
         {
             const string defaultLang = "en";
             var currentUser = context.CurrentUser as UserIdentity;
@@ -77,7 +81,7 @@ namespace PhotoCache.Web
             var formsAuthConfiguration = new FormsAuthenticationConfiguration
             {
                 RedirectUrl = "~/login",
-                UserMapper = container.Resolve<IUserMapper>(),
+                UserMapper = container.Resolve<IUserMapper>()
             };
 
             FormsAuthentication.Enable(pipelines, formsAuthConfiguration);
@@ -95,6 +99,14 @@ namespace PhotoCache.Web
 
             nancyConventions.StaticContentsConventions.Add(
                 StaticContentConventionBuilder.AddDirectory("scripts", @"Content\scripts")
+            );
+
+            nancyConventions.StaticContentsConventions.Add(
+                StaticContentConventionBuilder.AddDirectory("fonts", @"Content\fonts")
+            );
+
+            nancyConventions.StaticContentsConventions.Add(
+                StaticContentConventionBuilder.AddDirectory("templates", @"Content\templates")
             );
         }
     }
