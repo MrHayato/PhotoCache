@@ -11,6 +11,7 @@ namespace PhotoCache.Core.Persistence
         T Load(Guid id);
         List<T> LoadAll();
         void Store(T resource);
+        void Delete(T resource);
         void Delete(Guid id);
     }
 }

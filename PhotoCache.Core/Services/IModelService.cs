@@ -16,6 +16,7 @@ namespace PhotoCache.Core.Services
         IRavenQueryable<T> Query();
         T Load(Guid id);
         List<T> LoadAll();
+        void Delete(T model);
         void Delete(Guid id);
     }
 }

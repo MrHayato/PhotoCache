@@ -22,7 +22,9 @@ namespace PhotoCache.Web
 {
     public class Bootstrapper : WindsorNancyBootstrapper
     {
-        private IDocumentStore CreateDocumentStore()
+        public IDocumentStore DocumentStore { get; private set; }
+
+        protected virtual IDocumentStore CreateDocumentStore()
         {
             var documentStore = new DocumentStore { ConnectionStringName = "RAVENHQ_CONNECTION_STRING" };
             documentStore.Initialize();
@@ -46,9 +48,10 @@ namespace PhotoCache.Web
 
         protected override void ConfigureApplicationContainer(IWindsorContainer container)
         {
+            DocumentStore = CreateDocumentStore();
             container.Register(Component.For<IFluentAdapterFactory>().ImplementedBy<DefaultFluentAdapterFactory>().LifestyleSingleton());
             container.Register(Component.For<IUserMapper>().ImplementedBy<UserDatabase>().LifestyleSingleton());
-            container.Register(Component.For(typeof(IDocumentStore)).Instance(CreateDocumentStore()).LifestyleSingleton());
+            container.Register(Component.For(typeof(IDocumentStore)).Instance(DocumentStore).LifestyleSingleton());
             container.Register(Component.For(typeof(IRavenRepository<>)).ImplementedBy(typeof(RavenRepository<>)).LifestyleSingleton());
             container.Register(Component.For(typeof(IModelService<>)).ImplementedBy(typeof(ModelService<>)).LifestyleSingleton());
 

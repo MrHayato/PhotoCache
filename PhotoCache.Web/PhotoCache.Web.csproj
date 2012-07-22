@@ -118,6 +118,8 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Authentication\UserDatabase.cs" />
     <Content Include="Content\css\base.css" />
+    <Content Include="Content\img\photocache.png" />
+    <Content Include="Content\img\photocache_small.png" />
     <Content Include="Content\sass\base.scss">
       <Compile>False</Compile>
       <Minify>True</Minify>

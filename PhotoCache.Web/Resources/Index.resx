@@ -120,6 +120,9 @@
   <data name="LabelHeroHeader" xml:space="preserve">
     <value>Welcome to PhotoCache!</value>
   </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>PhotoCache - Dashboard</value>
+  </data>
   <data name="ParaAboutPhotoCache" xml:space="preserve">
     <value>PhotoCache is da bomb. You will thoroughly enjoy taking photos of the world around you and sharing it for all to see.</value>
   </data>

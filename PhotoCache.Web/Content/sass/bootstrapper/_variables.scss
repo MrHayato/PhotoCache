@@ -21,6 +21,8 @@ $white:                 #fff !default;
 
 // Accent colors
 // -------------------------
+$navy:                  #00355d !default;
+$navyDark:              #00223c !default;
 $blue:                  #049cdb !default;
 $blueDark:              #0064cd !default;
 $green:                 #46a546 !default;
@@ -34,6 +36,7 @@ $purple:                #7a43b6 !default;
 // Scaffolding
 // -------------------------
 $bodyBackground:        $white !default;
+$contentBackground:     $grayLighter !default;
 $textColor:             $grayDark !default;
 
 
@@ -54,7 +57,7 @@ $baseFontFamily:        $sansFontFamily !default;
 $baseLineHeight:        18px !default;
 $altFontFamily:         $serifFontFamily !default;
 
-$headingsFontFamily:    "Helvetica Neue", Helvetica, $sansFontFamily !default; // empty to use BS default, $baseFontFamily
+$headingsFontFamily:    "SansationBold", "Helvetica Neue", Helvetica, $sansFontFamily !default; // empty to use BS default, $baseFontFamily
 $headingsFontWeight:    bold !default;    // instead of browser default, bold
 $headingsColor:         inherit !default; // empty to use BS default, $textColor
 
@@ -143,9 +146,9 @@ $hrBorder:                $grayLighter !default;
 
 // Navbar
 // -------------------------
-$navbarHeight:                    40px !default;
-$navbarBackground:                $grayDarker !default;
-$navbarBackgroundHighlight:       $grayDark !default;
+$navbarHeight:                    30px !default;
+$navbarBackground:                $navy !default;
+$navbarBackgroundHighlight:       $navyDark !default;
 
 $navbarText:                      $grayLight !default;
 $navbarLinkColor:                 $grayLight !default;
@@ -158,7 +161,9 @@ $navbarSearchBackground:          lighten($navbarBackground, 25%) !default;
 $navbarSearchBackgroundFocus:     $white !default;
 $navbarSearchBorder:              darken($navbarSearchBackground, 30%) !default;
 $navbarSearchPlaceholderColor:    #ccc !default;
-$navbarBrandColor:                $navbarLinkColor !default;
+$navbarBrandFontFamily:           $headingsFontFamily !default;
+$navbarBrandFontSize:             50px !default;
+$navbarBrandColor:                $navy !default;
 
 
 // Hero unit

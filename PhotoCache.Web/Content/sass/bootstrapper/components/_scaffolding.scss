@@ -27,3 +27,8 @@ a:hover {
   color: $linkColorHover;
   text-decoration: underline;
 }
+
+.content {
+  @include border-radius(10px);
+  background-color: $grayLighter;
+}

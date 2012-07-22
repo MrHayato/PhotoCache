@@ -11,7 +11,6 @@
   *z-index: 2;
 
   overflow: visible;
-  margin-bottom: $baseLineHeight;
 }
 
 // Gradient is applied to it's own element because overflow visible is not honored by IE when filter is present
@@ -51,8 +50,8 @@
     $elementHeight: 20px;
     padding: (($navbarHeight - $elementHeight) / 2 - 2) 20px (($navbarHeight - $elementHeight) / 2 + 2);
     margin-left: -20px; // negative indent to left-align the text down the page
-    font-size: 20px;
-    font-weight: 200;
+    font-family: $navbarBrandFontFamily;
+    font-size: $navbarBrandFontSize;
     line-height: 1;
     color: $navbarBrandColor;
   }

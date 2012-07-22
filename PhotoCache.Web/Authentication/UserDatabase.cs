@@ -4,15 +4,15 @@ using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Security;
 using PhotoCache.Core.Models;
-using PhotoCache.Core.Persistence;
+using PhotoCache.Core.Services;
 
 namespace PhotoCache.Web.Authentication
 {
     public class UserDatabase : IUserMapper
     {
-        private static IRavenRepository<UserModel> _users; 
+        private static IModelService<UserModel> _users;
 
-        public UserDatabase(IRavenRepository<UserModel> users)
+        public UserDatabase(IModelService<UserModel> users)
         {
             _users = users;
         }

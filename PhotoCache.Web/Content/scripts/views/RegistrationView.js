@@ -1,6 +1,4 @@
-﻿/// <reference path="../models/RegistrationModel.js" />
-
-var RegistrationView = Backbone.View.extend({
+﻿App.Views.Registration = Backbone.View.extend({
     el: $("#registration-form"),
     initialize: function () {
         _.bindAll(this, "submit", "onError", "addError", "showSuccess", "saveSuccess", "removeMessages", "validationPassed");
@@ -57,9 +55,3 @@ var RegistrationView = Backbone.View.extend({
         window.location.replace("/");
     }
 });
-
-var regView = new RegistrationView({
-    model: new RegistrationModel()
-});
-
-

@@ -126,6 +126,9 @@
   <data name="LabelStep3" xml:space="preserve">
     <value>Step 3</value>
   </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>PhotoCache - About</value>
+  </data>
   <data name="ParaAbout" xml:space="preserve">
     <value>This will be a long paragraph about PhotoCache.</value>
   </data>

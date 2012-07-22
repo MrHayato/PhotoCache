@@ -1,17 +1,10 @@
 ﻿@import "font-face";
 
-$navbarBackground: #00355D;
-$navbarBackgroundHighlight: #00223c;
-$navbarBrandColor: #DDE4E9;
-$navbarText: $navbarBrandColor;
-
 @import "bootstrapper/variables";
 @import "bootstrapper/bootstrap";
 @import "bootstrapper/responsive";
 
-body { padding-top: 60px; }
-
-.navbar .register-form {
+.header .register-form {
     @extend .span4;
     padding: $gridGutterWidth; 
     padding-bottom: 0px;
@@ -23,5 +16,3 @@ body { padding-top: 60px; }
         color: $linkColor;
     }
 }
-
-.brand { font-family: "SansationBold", $baseFontFamily; }

@@ -15,8 +15,8 @@ namespace PhotoCache.Core.Services
 
         public ModelService(IRavenRepository<T> repository, IValidator<T> validator)
         {
-            _validator = validator;
             _repository = repository;
+            _validator = validator;
         }
 
         public ValidationResult Validate(T model)
@@ -52,29 +52,11 @@ namespace PhotoCache.Core.Services
             return true;
         }
 
-        public bool Update(T model)
-        {
-            return Create(model);
-        }
-
-        public IRavenQueryable<T> Query()
-        {
-            return _repository.Query();
-        }
-
-        public T Load(Guid id)
-        {
-            return _repository.Load(id);
-        }
-
-        public List<T> LoadAll()
-        {
-            return _repository.LoadAll();
-        }
-
-        public void Delete(Guid id)
-        {
-            _repository.Delete(id);
-        }
+        public bool Update(T model) { return Create(model); }
+        public IRavenQueryable<T> Query() { return _repository.Query(); }
+        public T Load(Guid id) { return _repository.Load(id); }
+        public List<T> LoadAll() { return _repository.LoadAll(); }
+        public void Delete(T model) { _repository.Delete(model); }
+        public void Delete(Guid id) { _repository.Delete(id); }
     }
 }
