@@ -14,7 +14,7 @@ namespace PhotoCache.Core.Specs.APISpecs
             public static string Register = "/user/register";
         }
 
-        protected static int _userCount = 0;
+        protected static int _userCount;
         protected static dynamic _lastEstablishedUser;
 
         protected static dynamic CreateValidUser()
