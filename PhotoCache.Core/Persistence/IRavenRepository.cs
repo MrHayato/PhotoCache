@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
+using Raven.Abstractions.Data;
 using Raven.Client.Linq;
 
 namespace PhotoCache.Core.Persistence
@@ -10,6 +11,7 @@ namespace PhotoCache.Core.Persistence
         IRavenQueryable<T> Query();
         T Load(Guid id);
         List<T> LoadAll();
+        void Patch(Guid id, PatchRequest[] patchRequests);
         void Store(T resource);
         void Delete(T resource);
         void Delete(Guid id);

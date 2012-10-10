@@ -1,9 +1,10 @@
 ﻿using FluentValidation;
 using FluentValidation.Results;
 using Machine.Specifications;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Core.Specs.Persistence;
 using PhotoCache.Core.Validators;
+using PhotoCache.Validation;
 using Raven.Client.Embedded;
 
 // ReSharper disable UnusedMember.Local
@@ -12,7 +13,7 @@ namespace PhotoCache.Core.Specs.ValidatorSpecs
     public class UserModelValidatorSpecs
     {
         protected static FakeRavenRepository<UserModel> Repository = new FakeRavenRepository<UserModel>(new EmbeddableDocumentStore { RunInMemory = true }.Initialize());
-        protected static IValidator<UserModel> Validator = new UserModelValidator(Repository);
+        protected static IMethodValidator<UserModel> Validator = new UserModelValidator(Repository);
         protected static UserModel NewUser = new UserModel { UserName = "testuser", StoredUserName = "testuser", Password = "testuser", FirstName = "test", LastName = "user" };
         protected static ValidationResult Result;
 
@@ -30,6 +31,7 @@ namespace PhotoCache.Core.Specs.ValidatorSpecs
         private Establish that = () =>
         {
             NewUser2 = new UserModel { UserName = "testuser" };
+            Validator.Method = ValidationMethod.Create;
         };
 
         private Because of = () => { Result = Validator.Validate(NewUser2, "UserName"); };

@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PhotoCache</title>
+
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.css" />
+		<script type="text/javascript" charset="utf-8" src="/scripts/libs/cordova-1.5.0.js"></script>
+		<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.2.0-alpha.1/jquery.mobile-1.2.0-alpha.1.min.js"></script>
+	</head>
+
+	<body>
+		<div data-role="page" id="page-splash" data-theme="c">
+			<div data-role="header">
+				<h1>PhotoCache</h1>
+			</div>
+		
+			<div data-role="content">
+				<ul data-role="listview" data-inset="true">
+					<li data-role="fieldcontain">
+						<label for="signin-username">Username:</label>
+						<input type="text" name="username" id="signin-username" placeholder="Username" />
+					</li>
+					<li data-role="fieldcontain">
+						<label for="signin-password">Password:</label>
+						<input type="text" name="password" id="signin-password" placeholder="Password" />
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
+							<div class="ui-block-b"><button type="submit" data-theme="b">Sign In</button></div>
+					    </fieldset>
+					</li>
+				</ul>
+				
+				<br /><br />
+				
+				<div style="float: right;"><a href="#page-signup">Sign Up</a></div>
+				<div style="float: left;"><a href="#page-forgot">Forgot Password?</a></div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="page-signup">
+		</div>
+		
+		<div data-role="page" id="page-forgot">
+			<div data-role="header">
+				<h1>Reset Password</h1>
+			</div>
+			
+			<div data-role="content">
+				<p>Forgot your password? Enter your username here and a password reset link will be emailed to you.</p>
+			
+				<ul data-role="listview" data-inset="true">
+					<li data-role="fieldcontain">
+						<label for="signin-username">Username:</label>
+						<input type="text" name="username" id="signin-username" placeholder="Username" />
+					</li>
+					<li data-role="fieldcontain">
+						<label for="signin-password">Password:</label>
+						<input type="text" name="password" id="signin-password" placeholder="Password" />
+					</li>
+					<li class="ui-body ui-body-b">
+						<fieldset class="ui-grid-a">
+							<div class="ui-block-a"><button type="submit" data-theme="d">Cancel</button></div>
+							<div class="ui-block-b"><button type="submit" data-theme="b">Sign In</button></div>
+					    </fieldset>
+					</li>
+				</ul>
+			</div>
+			
+			<div><a href="#page-splash">Back to Sign In</a></div>
+		</div>
+		
+	</body>
+</html>

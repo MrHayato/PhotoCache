@@ -3,24 +3,23 @@ using System.Globalization;
 using System.Threading;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
-using FluentValidation;
 using Nancy;
 using Nancy.Authentication.Forms;
 using Nancy.Bootstrapper;
-using Nancy.Bootstrappers.Windsor;
 using Nancy.Conventions;
 using Nancy.Session;
-using Nancy.Validation.FluentValidation;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.Logging;
 using PhotoCache.Core.Persistence;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Core.Services;
+using PhotoCache.Validation;
 using PhotoCache.Web.Authentication;
 using Raven.Client;
 using Raven.Client.Document;
 
 namespace PhotoCache.Web
 {
-    public class Bootstrapper : WindsorNancyBootstrapper
+    public class Bootstrapper : ModifiedWindsorNancyBootstrapper
     {
         public IDocumentStore DocumentStore { get; private set; }
 
@@ -30,10 +29,10 @@ namespace PhotoCache.Web
             documentStore.Initialize();
 
             var originalKeyGen = documentStore.Conventions.DocumentKeyGenerator;
-            documentStore.Conventions.DocumentKeyGenerator = delegate(object obj)
+            documentStore.Conventions.DocumentKeyGenerator = (arg, obj) =>
                 {
                     var userModel = obj as IModel;
-                    return userModel != null ? Guid.NewGuid().ToString() : originalKeyGen(obj);
+                    return userModel != null ? Guid.NewGuid().ToString() : originalKeyGen(arg, obj);
                 };
 
             return documentStore;
@@ -49,16 +48,17 @@ namespace PhotoCache.Web
         protected override void ConfigureApplicationContainer(IWindsorContainer container)
         {
             DocumentStore = CreateDocumentStore();
-            container.Register(Component.For<IFluentAdapterFactory>().ImplementedBy<DefaultFluentAdapterFactory>().LifestyleSingleton());
+            //container.Register(Component.For<IFluentAdapterFactory>().ImplementedBy<DefaultFluentAdapterFactory>().LifestyleSingleton());
             container.Register(Component.For<IUserMapper>().ImplementedBy<UserDatabase>().LifestyleSingleton());
             container.Register(Component.For(typeof(IDocumentStore)).Instance(DocumentStore).LifestyleSingleton());
             container.Register(Component.For(typeof(IRavenRepository<>)).ImplementedBy(typeof(RavenRepository<>)).LifestyleSingleton());
             container.Register(Component.For(typeof(IModelService<>)).ImplementedBy(typeof(ModelService<>)).LifestyleSingleton());
+            container.Register(Component.For<ILogger>().ImplementedBy<Logger>().LifestyleSingleton());
 
             //Validators
             container.Register(Classes
                 .FromAssemblyNamed("PhotoCache.Core")
-                .BasedOn(typeof(IValidator<>))
+                .BasedOn(typeof(IMethodValidator<>))
                 .WithService.Base()
                 .LifestyleSingleton());
         }

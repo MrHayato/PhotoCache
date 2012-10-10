@@ -1,7 +1,8 @@
 ﻿using FluentValidation;
 using Nancy;
 using Nancy.ModelBinding;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.Extensions;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Core.Services;
 using PhotoCache.Web.Helpers;
 
@@ -36,6 +37,7 @@ namespace PhotoCache.Web.Modules.APIModules
             try
             {
                 user.StoredUserName = user.UserName.ToLower();
+                user.Password = (user.Password + user.Id).GetSha1Hash();
                 _modelService.Create(user);
                 return Response.AsJson(user).Created();
             } 

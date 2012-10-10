@@ -1,7 +1,9 @@
-﻿using Machine.Specifications;
+﻿using System.Linq;
+using Machine.Specifications;
 using Nancy;
 using Nancy.Testing;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.Extensions;
+using PhotoCache.Core.ReadModels;
 
 // ReSharper disable UnusedMember.Local
 namespace PhotoCache.Core.Specs.APISpecs
@@ -59,8 +61,17 @@ namespace PhotoCache.Core.Specs.APISpecs
 
     public class when_creating_a_new_valid_user : UserModuleSpecs
     {
-        private Because of = () => JsonRequest(Endpoints.Register, CreateValidUser(), POST);
+        private static dynamic _user = CreateValidUser();
+        private static string _username = _user.StoredUserName;
+        private static string _password = _user.Password;
+
+        private Because of = () => JsonRequest(Endpoints.Register, _user, POST);
         private It should_return_201_created = () => Response.StatusCode.ShouldEqual(HttpStatusCode.Created);
+        private It should_have_the_created_user_in_repo = () => Repository.Query()
+            .Any(q => q.StoredUserName == _username)
+            .ShouldEqual(true);
+        private It should_have_a_hashed_password_in_the_response = () => Response.Body["Password"]
+            .ShouldContain(_password.GetSha1Hash());
     }
 
     public class when_creating_a_user_that_already_exists : UserModuleSpecs

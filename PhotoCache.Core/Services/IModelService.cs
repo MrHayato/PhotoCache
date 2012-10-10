@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using FluentValidation.Results;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 using Raven.Client.Linq;
 
 namespace PhotoCache.Core.Services
@@ -13,6 +13,7 @@ namespace PhotoCache.Core.Services
 
         bool Create(T model);
         bool Update(T model);
+        bool Patch(T model, ModelPatch[] patches);
         IRavenQueryable<T> Query();
         T Load(Guid id);
         List<T> LoadAll();

@@ -1,18 +1,5 @@
-﻿@import "font-face";
-
-@import "bootstrapper/variables";
-@import "bootstrapper/bootstrap";
-@import "bootstrapper/responsive";
-
-.header .register-form {
-    @extend .span4;
-    padding: $gridGutterWidth; 
-    padding-bottom: 0px;
-    label {
-        color: $gray;
-    } 
-    a {
-        padding: 0px;
-        color: $linkColor;
-    }
-}
+//Bootstrap import
+@import "compass/reset";
+@import "vars";
+@import "bootstrap";
+@import "bootstrap-responsive";

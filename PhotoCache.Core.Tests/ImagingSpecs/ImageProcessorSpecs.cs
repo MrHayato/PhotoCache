@@ -34,7 +34,7 @@ namespace PhotoCache.Core.Specs.ImagingSpecs
                                      }
                                  };
 
-        private It should = () => new DirectoryInfo(_sourceDirectory).GetFiles().Length.ShouldEqual(
+        private It should_process_all_of_the_test_images = () => new DirectoryInfo(_sourceDirectory).GetFiles().Length.ShouldEqual(
             new DirectoryInfo(_targetDirectory).GetFiles().Length);
     }
 }

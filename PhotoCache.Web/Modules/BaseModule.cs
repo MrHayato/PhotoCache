@@ -1,7 +1,8 @@
-﻿using Nancy;
-using PhotoCache.Core.Models;
+﻿
+
+using Nancy;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Web.Authentication;
-using PhotoCache.Web.Models;
 
 namespace PhotoCache.Web.Modules
 {
@@ -25,16 +26,16 @@ namespace PhotoCache.Web.Modules
 
             return model;
         }
-
-        public Response RenderView(string view)
-        {
-            return View[view, new ViewModel { CurrentUser = GetUserModel() }];
-        }
-
-        public Response RenderView(string view, object model)
-        {
-            return View[view, new ViewModel { Model = model, CurrentUser = GetUserModel() }];
-        }
-        
+//
+//        public ViewRenderer RenderView(string view)
+//        {
+//            return View[view, new ViewModel { CurrentUser = GetUserModel() }];
+//        }
+//
+//        public ViewRenderer RenderView(string view, object model)
+//        {
+//            return View[view, new ViewModel { Model = model, CurrentUser = GetUserModel() }];
+//        }
+//        
     }
 }

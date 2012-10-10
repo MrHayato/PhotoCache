@@ -34,58 +34,45 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Core.3.0.0.4001\lib\net40-client\Castle.Core.dll</HintPath>
+    <Reference Include="Castle.Core, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Core.3.1.0\lib\net40-client\Castle.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Castle.Windsor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\packages\Castle.Windsor.3.0.0.4001\lib\net40\Castle.Windsor.dll</HintPath>
+    <Reference Include="Castle.Windsor, Version=3.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Castle.Windsor.3.1.0\lib\net40\Castle.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="Nancy, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.0.12.1\lib\net40\Nancy.dll</HintPath>
     </Reference>
-    <Reference Include="FluentValidation, Version=3.3.1.0, Culture=neutral, PublicKeyToken=a82054b837897c66, processorArchitecture=MSIL">
-      <HintPath>..\packages\FluentValidation.3.3.1.0\lib\Net40\FluentValidation.dll</HintPath>
+    <Reference Include="Nancy.Authentication.Forms, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Authentication.Forms.0.12.1\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.0.11.0\lib\net40\Nancy.dll</HintPath>
+    <Reference Include="Nancy.Bootstrappers.Windsor, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Bootstrappers.Windsor.0.12.1\lib\net40\Nancy.Bootstrappers.Windsor.dll</HintPath>
     </Reference>
-    <Reference Include="Nancy.Authentication.Forms, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.Authentication.Forms.0.11.0\lib\net40\Nancy.Authentication.Forms.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Bootstrappers.Windsor, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.Bootstrappers.Windsor.0.11.0\lib\net40\Nancy.Bootstrappers.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Hosting.Aspnet, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.11.0\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.Validation.FluentValidation, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Nancy.Validation.FluentValidation.0.11.0\lib\net40\Nancy.Validation.FluentValidation.dll</HintPath>
+    <Reference Include="Nancy.Hosting.Aspnet, Version=0.12.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Nancy.Hosting.Aspnet.0.12.1\lib\net40\Nancy.Hosting.Aspnet.dll</HintPath>
     </Reference>
     <Reference Include="Nancy.ViewEngines.Razor">
-      <HintPath>..\packages\Nancy.Viewengines.Razor.0.11.0\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Nancy.ViewEngines.Razor.BuildProviders, Version=0.10.0.0, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Nancy.ViewEngines.Razor.BuildProviders.dll</HintPath>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\Nancy.ViewEngines.Razor.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.4.5.7\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.4.5.9\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
-      <HintPath>..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    <Reference Include="Raven.Abstractions, Version=1.2.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Client.1.2.2099-Unstable\lib\net40\Raven.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="Raven.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.1.0.971\lib\net40\Raven.Abstractions.dll</HintPath>
-    </Reference>
-    <Reference Include="Raven.Client.Lightweight, Version=1.0.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
-      <HintPath>..\packages\RavenDB.Client.1.0.971\lib\net40\Raven.Client.Lightweight.dll</HintPath>
+    <Reference Include="Raven.Client.Lightweight, Version=1.2.0.0, Culture=neutral, PublicKeyToken=37f41c7f99471593, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RavenDB.Client.1.2.2099-Unstable\lib\net40\Raven.Client.Lightweight.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Nancy.Viewengines.Razor.0.11.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Nancy.Viewengines.Razor.0.12.1\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -113,6 +100,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Authentication\UserDatabase.cs" />
     <Content Include="Content\css\base.css" />
+    <Content Include="Content\css\styles.css" />
     <Content Include="Content\img\photocache.png" />
     <Content Include="Content\img\photocache_small.png" />
     <Content Include="Content\sass\base.scss">
@@ -121,64 +109,21 @@
       <CompileStyle>Nested</CompileStyle>
       <DebugInfo>False</DebugInfo>
     </Content>
-    <Content Include="Content\sass\bootstrapper\_bootstrap.scss">
-      <Compile>False</Compile>
-      <Minify>True</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </Content>
-    <Content Include="Content\sass\bootstrapper\components\_accordion.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_alerts.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_breadcrumbs.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_button-groups.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_buttons.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_carousel.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_close.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_code.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_component-animations.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_dropdowns.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_forms.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_grid.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_hero-unit.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_labels-badges.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_layouts.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_mixins.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_modals.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_navbar.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_navs.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_pager.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_pagination.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_popovers.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_progress-bars.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_reset.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_responsive-1200px-min.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_responsive-767px-max.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_responsive-768px-979px.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_responsive-navbar.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_responsive-utilities.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_scaffolding.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_sprites.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_tables.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_thumbnails.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_tooltip.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_type.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_utilities.scss" />
-    <Content Include="Content\sass\bootstrapper\components\_wells.scss" />
-    <Content Include="Content\sass\bootstrapper\_responsive.scss">
-      <Compile>False</Compile>
-      <Minify>True</Minify>
-      <CompileStyle>Nested</CompileStyle>
-      <DebugInfo>False</DebugInfo>
-    </Content>
-    <Content Include="Content\sass\bootstrapper\_variables.scss" />
-    <Content Include="Content\sass\_font-face.scss" />
+    <Content Include="Content\sass\components\_fonts.scss" />
+    <Content Include="Content\sass\components\_navbar.scss" />
+    <Content Include="Content\sass\styles.scss" />
+    <Content Include="Content\sass\_vars.scss" />
     <Content Include="Content\scripts\initializer.js" />
     <Content Include="Content\scripts\models\RegistrationModel.js" />
     <Compile Include="Models\IViewModel.cs" />
     <Compile Include="Models\ViewModel.cs" />
+    <Compile Include="ModifiedWindsorNancyBootstrapper.cs" />
     <Compile Include="Modules\APIModules\AssetModule.cs" />
     <Compile Include="Modules\APIModules\CacheModule.cs" />
     <Compile Include="Modules\APIModules\ImageModule.cs" />
+    <Compile Include="Modules\APIModules\SecureAPIModule.cs" />
+    <Compile Include="Modules\APIModules\Secure\SecureUserModule.cs" />
+    <Compile Include="Modules\DefaultModuleBuilder.cs" />
     <Compile Include="Resources\About.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -237,7 +182,6 @@
     <Compile Include="Models\RestErrorModel.cs" />
     <Compile Include="Modules\APIModules\LoginModule.cs" />
     <Compile Include="Modules\APIModules\UserModule.cs" />
-    <Compile Include="Modules\APIModules\SecureUserModule.cs" />
     <Compile Include="Modules\BaseAPIModule.cs" />
     <Compile Include="Modules\BaseModule.cs" />
     <Compile Include="Modules\ViewModules\MainViewModule.cs" />
@@ -249,82 +193,31 @@
     <Content Include="Content\scripts\tests\testrunner.html" />
     <Content Include="Content\scripts\views\RegistrationView.js" />
     <Content Include="Content\templates\TestModelTemplate.htm" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\jquery-ui.css" />
-    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
-    <Content Include="Content\themes\base\jquery.ui.all.css" />
-    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
-    <Content Include="Content\themes\base\jquery.ui.base.css" />
-    <Content Include="Content\themes\base\jquery.ui.button.css" />
-    <Content Include="Content\themes\base\jquery.ui.core.css" />
-    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
-    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
-    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
-    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
-    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
-    <Content Include="Content\themes\base\jquery.ui.slider.css" />
-    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
-    <Content Include="Content\themes\base\jquery.ui.theme.css" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_222222_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_454545_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_888888_256x240.png" />
-    <Content Include="Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\themes\base\minified\jquery-ui.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.accordion.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.autocomplete.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.button.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.core.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.datepicker.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.dialog.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.progressbar.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.resizable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.selectable.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
-    <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoCache.Core\PhotoCache.Core.csproj">
       <Project>{3C1EF847-FBB3-4468-98F5-F24110F21EF5}</Project>
       <Name>PhotoCache.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PhotoCache.Validation\PhotoCache.Validation.csproj">
+      <Project>{08C693F3-558F-46BA-AF46-856EA6235EFA}</Project>
+      <Name>PhotoCache.Validation</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.rb" />
-    <Content Include="Views\Index.cshtml" />
+    <Content Include="views\Index.cshtml" />
     <None Include="Content\fonts\Sansation_Bold-webfont.eot" />
     <None Include="Content\fonts\Sansation_Bold-webfont.ttf" />
     <None Include="Content\fonts\Sansation_Bold-webfont.woff" />
@@ -343,8 +236,10 @@
     <None Include="Content\fonts\Sansation_Regular-webfont.eot" />
     <None Include="Content\fonts\Sansation_Regular-webfont.ttf" />
     <None Include="Content\fonts\Sansation_Regular-webfont.woff" />
-    <Content Include="Views\User\Register.cshtml" />
-    <Content Include="Views\About.cshtml" />
+    <Content Include="views\User\Register.cshtml" />
+    <Content Include="views\About.cshtml" />
+    <None Include="Gemfile" />
+    <Content Include="packages.config" />
     <None Include="rakefile.rb" />
   </ItemGroup>
   <ItemGroup>
@@ -430,6 +325,10 @@
     <PostBuildEvent>start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.10.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
 start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.10.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"
 start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.11.0\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
-start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.11.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"</PostBuildEvent>
+start /MIN xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.11.0\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"
+if $(ConfigurationName) == Debug (
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.12.1\BuildProviders\Nancy.ViewEngines.Razor.BuildProviders.dll" "$(ProjectDir)bin"
+xcopy /s /y /R "$(SolutionDir)packages\Nancy.Viewengines.Razor.0.12.1\lib\Net40\Nancy.ViewEngines.Razor.dll" "$(ProjectDir)bin"
+)</PostBuildEvent>
   </PropertyGroup>
 </Project>

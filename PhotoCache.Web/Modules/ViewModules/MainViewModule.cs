@@ -1,11 +1,14 @@
-﻿namespace PhotoCache.Web.Modules.ViewModules
+﻿using Nancy;
+using PhotoCache.Web.Models;
+
+namespace PhotoCache.Web.Modules.ViewModules
 {
-    public class MainViewModule : BaseModule
+    public class MainViewModule : NancyModule//: BaseModule
     {
         public MainViewModule()
         {
-            Get["/"] = x => RenderView("Index.cshtml");
-            Get["/about"] = x => RenderView("About.cshtml");
+            Get["/"] = x => View["Index.cshtml"];//, new ViewModel { CurrentUser = GetUserModel() }];
+            Get["/about"] = x => View["About.cshtml"];//, new ViewModel { CurrentUser = GetUserModel() }];
         }
     }
 }

@@ -120,4 +120,7 @@
   <data name="IncorrectLogin" xml:space="preserve">
     <value>UserName or Password are incorrect.</value>
   </data>
+  <data name="TooManyAttempts" xml:space="preserve">
+    <value>You have attempted to sign in to this account too many times and has been locked.</value>
+  </data>
 </root>

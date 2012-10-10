@@ -68,5 +68,14 @@ namespace Res.User {
                 return ResourceManager.GetString("IncorrectLogin", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have attempted to sign in to this account too many times and has been locked..
+        /// </summary>
+        public static string TooManyAttempts {
+            get {
+                return ResourceManager.GetString("TooManyAttempts", resourceCulture);
+            }
+        }
     }
 }

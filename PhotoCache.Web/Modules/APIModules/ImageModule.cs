@@ -1,6 +1,6 @@
 ﻿using System;
 using Nancy;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Core.Services;
 using PhotoCache.Web.Helpers;
 

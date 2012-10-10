@@ -1,5 +1,5 @@
-﻿using PhotoCache.Core.Models;
-using PhotoCache.Core.Persistence;
+﻿using PhotoCache.Core.Persistence;
+using PhotoCache.Core.ReadModels;
 using Raven.Client;
 using Raven.Client.Embedded;
 

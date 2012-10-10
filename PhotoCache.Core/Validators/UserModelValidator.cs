@@ -1,12 +1,12 @@
-using System;
 using System.Linq;
 using FluentValidation;
-using PhotoCache.Core.Models;
 using PhotoCache.Core.Persistence;
+using PhotoCache.Core.ReadModels;
+using PhotoCache.Validation;
 
 namespace PhotoCache.Core.Validators
 {
-    public class UserModelValidator : AbstractValidator<UserModel>
+    public class UserModelValidator : AbstractMethodValidator<UserModel>
     {
         private IRavenRepository<UserModel> _users;
 
@@ -31,11 +31,13 @@ namespace PhotoCache.Core.Validators
 
         public bool BeAnUnusedUserName(string username)
         {
-            foreach (var userModel in _users.LoadAll())
+            switch(Method)
             {
-                Console.WriteLine(userModel);
+                case ValidationMethod.Create:
+                    return !_users.Query().Any(q => q.StoredUserName == username.ToLower());
+                default:
+                    return true;
             }
-            return !_users.Query().Any(q => q.StoredUserName == username.ToLower());
         }
     }
 }

@@ -4,25 +4,28 @@
     initialize: function () {
     },
     validate: function (attrs) {
-        var queryString = "";
-        var first = true;
-        var self = this;
+        var queryString = "",
+            first = true,
+            self = this,
+            attr,
+            onError,
+            onSuccess;
 
-        for (var attr in attrs) {
+        onError = function (err) {
+            self.trigger("error", self, err);
+        };
+        
+        onSuccess = function () {
+            self.trigger("validationPassed");
+        };
+
+        for (attr in attrs) {
             queryString +=
                 (first ? "?" : "&") +
                 attr + "=" + attrs[attr];
 
             first = false;
         }
-
-        var onError = function (err) {
-            self.trigger("error", self, err);
-        };
-
-        var onSuccess = function () {
-            self.trigger("validationPassed");
-        };
 
         $.when($.ajax(this.validateUrl + queryString)
             .success(onSuccess)

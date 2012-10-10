@@ -6,7 +6,7 @@ using System.Linq;
 using Nancy;
 using PhotoCache.Core.Extensions;
 using PhotoCache.Core.Imaging;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 using PhotoCache.Core.Services;
 using PhotoCache.Web.Helpers;
 using Raven.Client;

@@ -16,7 +16,7 @@
 
         if (!privacyChecked) {
             this.addError("privacy-policy", "You must accept the privacy policy");
-        } else if (this.$("#Password").val() != this.$("#PasswordConfirm").val()) {
+        } else if (this.$("#Password").val() !== this.$("#PasswordConfirm").val()) {
             this.addError("PasswordConfirm", "Your passwords do not match");
         } else {
             this.model.save();
@@ -25,15 +25,16 @@
         return false;
     },
     onError: function (model, error) {
-        var response = JSON.parse(error.responseText);
-        var self = this;
+        var response = JSON.parse(error.responseText),
+            self = this;
 
         this.removeMessages();
 
         if (response && response.Messages) {
             $("input", this.el).each(function (i, inputField) {
-                if (inputField.id in response.Messages)
+                if (inputField.id in response.Messages) {
                     self.addError(inputField.id, response.Messages[inputField.id]);
+                }
             });
         }
     },

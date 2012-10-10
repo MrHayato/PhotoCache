@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 using Raven.Abstractions.Commands;
+using Raven.Abstractions.Data;
 using Raven.Client;
 using Raven.Client.Linq;
 
@@ -51,6 +52,12 @@ namespace PhotoCache.Core.Persistence
             }
 
             return results;
+        }
+
+        public void Patch(Guid id, PatchRequest[] patchRequests)
+        {
+            var _id = typeof(T).Name + "/" + id;
+            _documentStore.DatabaseCommands.Patch(id.ToString(), patchRequests);
         }
 
         public void Store(T resource)

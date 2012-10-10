@@ -1,4 +1,4 @@
-using PhotoCache.Core.Models;
+using PhotoCache.Core.ReadModels;
 
 namespace PhotoCache.Web.Models
 {
