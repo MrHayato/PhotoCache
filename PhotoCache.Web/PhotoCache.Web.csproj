@@ -99,8 +99,6 @@
     <Compile Include="Authentication\UserIdentity.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Authentication\UserDatabase.cs" />
-    <Content Include="Content\css\base.css" />
-    <Content Include="Content\css\styles.css" />
     <Content Include="Content\img\photocache.png" />
     <Content Include="Content\img\photocache_small.png" />
     <Content Include="Content\sass\base.scss">
@@ -111,7 +109,12 @@
     </Content>
     <Content Include="Content\sass\components\_fonts.scss" />
     <Content Include="Content\sass\components\_navbar.scss" />
-    <Content Include="Content\sass\styles.scss" />
+    <Content Include="Content\sass\styles.scss">
+      <Compile>False</Compile>
+      <Minify>True</Minify>
+      <CompileStyle>Nested</CompileStyle>
+      <DebugInfo>False</DebugInfo>
+    </Content>
     <Content Include="Content\sass\_vars.scss" />
     <Content Include="Content\scripts\initializer.js" />
     <Content Include="Content\scripts\models\RegistrationModel.js" />
@@ -204,7 +207,9 @@
     </Content>
     <Content Include="views\Shared\_Layout.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\css\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PhotoCache.Core\PhotoCache.Core.csproj">
       <Project>{3C1EF847-FBB3-4468-98F5-F24110F21EF5}</Project>
