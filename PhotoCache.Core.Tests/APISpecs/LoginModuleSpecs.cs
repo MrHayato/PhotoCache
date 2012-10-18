@@ -58,7 +58,7 @@ namespace PhotoCache.Core.Specs.APISpecs
             JsonRequest(Endpoints.Login, new { UserName = "TestLoginUser", Password = "Password" }, POST);
 
         private It should_return_200_ok = () => Response.StatusCode.ShouldEqual(HttpStatusCode.OK);
-        private It should_set_the_last_login_date = () => Repository.Load(_userId).LastLogin.ShouldBeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(200));
+        private It should_set_the_last_login_date = () => Repository.Load(_userId).LastLogin.ShouldBeCloseTo(DateTime.Now, TimeSpan.FromMilliseconds(1000));
         private It should_set_the_session_object = () => Response.Context.Items.ContainsKey(SecureAPIModule.SessionItemKey).ShouldBeTrue();
     }
 
