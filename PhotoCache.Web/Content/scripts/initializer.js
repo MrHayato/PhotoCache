@@ -9,10 +9,8 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', 'UA-34594774-1']);
 _gaq.push(['_trackPageview']);
 
-var gaUrl = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-
 Bootstrap.load([
     "backbone",
     "bootstrap.dropdown",
-    "@" + gaUrl
+    "@" + ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'
 ]);
