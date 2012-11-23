@@ -1,4 +1,4 @@
-﻿App.Views.Registration = Backbone.View.extend({
+App.Views.Registration = Backbone.View.extend({
     el: $("#registration-form"),
     initialize: function () {
         _.bindAll(this, "submit", "onError", "addError", "showSuccess", "saveSuccess", "removeMessages", "validationPassed");

@@ -1,4 +1,4 @@
-﻿App.Models.Registration = Backbone.Model.extend({
+App.Models.Registration = Backbone.Model.extend({
     url: "/api/user/register",
     validateUrl: "/api/user/validate",
     initialize: function () {

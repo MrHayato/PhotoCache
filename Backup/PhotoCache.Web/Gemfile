@@ -1,0 +1,6 @@
+source 'http://rubygems.org'
+
+gem 'albacore'
+gem 'rake'
+gem 'compass'
+gem 'bootstrap-sass', '~> 2.1.0.0'

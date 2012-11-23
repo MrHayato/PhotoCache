@@ -1,0 +1,20 @@
+﻿$navDark:     #050F14;
+$blue:    lighten($navDark, 15);
+
+$beigeLight:    #E3DCC0;
+$beigeDark:     #DCD2AE;
+
+$logoBlue:      #0079B2;
+
+//Bootstrap variable overrides
+$bodyBackground:                #F5FFF5;
+
+$navbarHeight:                  150px;
+$navbarBackground:              $navDark;
+$navbarBackgroundHighlight:     $blue;
+
+$headingsColor:                 $blue;
+$headingsFontFamily:            "SansationBold", "Helvetica";
+
+//Buttons
+$btnPrimaryBackground:          $blue;

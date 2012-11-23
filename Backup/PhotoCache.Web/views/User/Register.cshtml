@@ -1,0 +1,46 @@
+﻿@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<form id="registration-form" class="well form-horizontal" method="POST" action="@Res.API.Register">
+    <fieldset>
+        <legend>@Res.User.Register.LabelCreateAccount</legend>
+        <div class="control-group">
+            <label class="control-label" for="UserName">@Res.User.Register.LabelUserName</label>
+            <div class="controls">
+                <input type="text" class="input-xlarge" id="UserName" name="UserName" autocomplete="off">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Password">@Res.User.Register.LabelPassword</label>
+            <div class="controls">
+                <input type="password" class="input-xlarge" id="Password" name="Password" autocomplete="off">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="PasswordConfirm">@Res.User.Register.LabelPasswordConfirm</label>
+            <div class="controls">
+                <input type="password" class="input-xlarge" id="PasswordConfirm" name="PasswordConfirm" autocomplete="off">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="Email">@Res.User.Register.LabelEmail</label>
+            <div class="controls">
+                <input type="email" class="input-xlarge" id="Email" name="Email" autocomplete="off">
+            </div>
+        </div>
+        
+        <div class="control-group">
+            <div class="controls">
+                <label class="checkbox">
+                    <input type="checkbox" id="privacy-policy" />
+                    @Res.User.Register.LabelPrivacyPolicy
+                </label>
+            </div>
+        </div>
+        
+        <div class="form-actions">
+            <input id="SubmitForm" type="submit" class="btn btn-primary" value="@Res.Shared.Elements.ButtonSubmit" />
+        </div>
+    </fieldset>
+</form>
